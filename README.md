@@ -1,7 +1,3 @@
-# ElasticSearch GitHub Action
-
-This [GitHub Action](https://github.com/features/actions) sets up ElasticSearch
-
 # Usage
 
 See [action.yml](action.yml)
@@ -16,12 +12,12 @@ steps:
     sudo sysctl -w fs.file-max=262144
     sudo sysctl -w vm.max_map_count=262144
 
-- uses: getong/elasticsearch-action@v1.2
+- uses: Stark-Tech-Group/stg-elastic-action@v1
   with:
     elasticsearch version: '7.6.1'
-    host port: 9200
-    container port: 9200
-    host node port: 9300
-    node port: 9300
-    discovery type: 'single-node'
+    host_port: 9200
+    container_port: 9200
+    host_node_port: 9300
+    node_port: 9300
+    discovery_type: 'single-node'
 ```
