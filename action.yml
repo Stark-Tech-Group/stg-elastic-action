@@ -1,0 +1,32 @@
+name: 'Setup ElasticSearch'
+description: 'Setup ElasticSearch'
+inputs:
+  es_version:
+    description: ES Version
+    required: false
+    default: latest
+  host_port:
+    description: port for host
+    required: false
+    default: "9200"
+  container_port:
+    description: 'The port of container'
+    required: false
+    default: "9200"
+  host_node_port:
+    description: 'The port of host elasticsearch node port'
+    required: false
+    default: "9300"
+  node_port:
+    description: 'The port of elasticsearch node port'
+    required: false
+    default: "9300"
+  discovery_type:
+    description: 'the discovery.type envionment'
+    required: false
+    default: 'single-node'
+
+
+runs:
+  using: docker
+  image: Dockerfile

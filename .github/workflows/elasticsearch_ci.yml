@@ -1,0 +1,35 @@
+name: elasticsearch_ci
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: install curl
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y curl docker
+
+    - name: Configure sysctl limits
+      run: |
+        sudo swapoff -a
+        sudo sysctl -w vm.swappiness=1
+        sudo sysctl -w fs.file-max=262144
+        sudo sysctl -w vm.max_map_count=262144
+
+    - uses: stark-tech-group/stg-elastic-action@v1
+      with:
+        elasticsearch version: '7.6.3'
+        host port: 9200
+        container port: 9200
+        host node port: 9300
+        node port: 9300
+        discovery type: 'single-node'
+
+    - name: get the stats
+      run: curl -X Get "localhost:9200/_cluster/stats?pretty=true"
+    - name: check the elasticsearch whether is running or not
+      run: curl -X GET "localhost:9200/_cat/nodes?v&pretty"
