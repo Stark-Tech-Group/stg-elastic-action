@@ -1,32 +1,35 @@
 name: 'Setup ElasticSearch'
 description: 'Setup ElasticSearch'
+author: 'getong'
+branding:
+  icon: 'database'
+  color: 'orange'
 inputs:
-  es_version:
-    description: ES Version
+  elasticsearch version:
+    description: 'Version of elasticsearch to use'
     required: false
-    default: latest
-  host_port:
-    description: port for host
+    default: 'latest'
+  host port:
+    description: 'The port of host'
     required: false
-    default: "9200"
-  container_port:
+    default: 9200
+  container port:
     description: 'The port of container'
     required: false
-    default: "9200"
-  host_node_port:
+    default: 9200
+  host node port:
     description: 'The port of host elasticsearch node port'
     required: false
-    default: "9300"
-  node_port:
+    default: 9300
+  node port:
     description: 'The port of elasticsearch node port'
     required: false
-    default: "9300"
-  discovery_type:
+    default: 9300
+  discovery type:
     description: 'the discovery.type envionment'
     required: false
     default: 'single-node'
 
-
 runs:
-  using: docker
-  image: Dockerfile
+  using: 'docker'
+  image: 'Dockerfile'
