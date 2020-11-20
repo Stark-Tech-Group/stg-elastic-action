@@ -22,7 +22,7 @@ jobs:
 
     - uses: stark-tech-group/stg-elastic-action@v1
       with:
-        es_version: '7.6.3'
+        es_version: '7.3.2'
         host_port: 9200
         container_port: 9200
         host_node_port: 9300

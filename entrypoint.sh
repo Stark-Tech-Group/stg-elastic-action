@@ -1,5 +1,3 @@
-#!/bin/sh
-
 docker network create elastic
 
 
